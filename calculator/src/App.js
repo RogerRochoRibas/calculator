@@ -2,7 +2,8 @@ import "./App.css";
 import React from "react";
 import DigitButton from "./components/DigitButton";
 import OperatorButton from "./components/OperatorButton";
-import { Screen } from "./components/Screen";
+import MemoryButton from "./components/MemoryButton";
+import Screen from "./components/Screen";
 
 function App() {
   const [screen, setScreen] = React.useState({
@@ -11,6 +12,7 @@ function App() {
     operator: false,
     firstNumberDecimal: '',
     secondNumberDecimal: '',
+    memory: '',
   });
 
   function calc(firstVal, secondVal, operator) {
@@ -52,10 +54,10 @@ function App() {
     <div className="App">
       <div className="calculator">
         <Screen screen={screen} calc={calc}/>
-        <button>mc</button>
-        <button>m+</button>
-        <button>m-</button>
-        <button>mr</button>
+        <MemoryButton screen={screen} setScreen={setScreen} calc={calc} memory='mc' />
+        <MemoryButton screen={screen} setScreen={setScreen} calc={calc} memory='m+' />
+        <MemoryButton screen={screen} setScreen={setScreen} calc={calc} memory='m-' />
+        <MemoryButton screen={screen} setScreen={setScreen} calc={calc} memory='mr' />
         <button onClick={() => Clear()}>C</button>
         <OperatorButton screen={screen} setScreen={setScreen} digit='÷' />
         <OperatorButton screen={screen} setScreen={setScreen} digit='*' />
