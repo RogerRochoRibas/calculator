@@ -13,7 +13,8 @@ export default function MemoryButton(props) {
         props.screen.operator
       );
       result = Number(result)
-      newScreen.memory = newScreen.memory + result;
+      let numberMemory = Number(newScreen.memory)
+      newScreen.memory = numberMemory + result;
       props.setScreen(newScreen);
     }
     if (memory === "m-") {
@@ -24,7 +25,8 @@ export default function MemoryButton(props) {
         props.screen.operator
       );
       result = Number(result)
-      newScreen.memory = newScreen.memory - result;
+      let numberMemory = Number(newScreen.memory)
+      newScreen.memory = numberMemory - result;
       props.setScreen(newScreen);
     }
     if (memory === "mr") {

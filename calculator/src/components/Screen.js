@@ -2,11 +2,11 @@ export default function Screen(props) {
   return (
     <div className="screen">
       <div className="calculation">
+        <Memory screen={props.screen} />
         <FirstNumber screen={props.screen} />
         <Operator screen={props.screen} />
         <SecondNum screen={props.screen} />
         <Predict screen={props.screen} calc={props.calc} />
-        <Memory screen={props.screen} />
       </div>
     </div>
   );
@@ -32,7 +32,9 @@ function SecondNum(props) {
       {props.screen.secondNumber}
       {props.screen.secondNumberDecimal}
     </span>
-  );} else return ''
+  );} else return (
+    <span className="secondNum">
+    </span>)
 }
 
 function Predict(props) {
@@ -45,13 +47,16 @@ function Predict(props) {
         props.screen.operator
       )}
     </div>
-  );} else return ''
+  );} else return (
+    <div className="predict">
+    </div>
+  )
 }
 
 function Memory(props) {
   if (props.screen.memory) {
     return (
-      <div className="memoryScreen">{props.screen.memory}</div>
+      <div className="memoryScreen">M {props.screen.memory}</div>
     )
   }
 }

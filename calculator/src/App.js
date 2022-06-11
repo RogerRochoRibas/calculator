@@ -27,6 +27,8 @@ function App() {
         return firstVal / secondVal;
       } else if (operator === "%") {
         return firstVal * secondVal / 100;
+      } else if (operator === false) {
+        return firstVal
       }
     };
 
@@ -49,6 +51,7 @@ function App() {
       operator: false,
       firstNumberDecimal: '',
       secondNumberDecimal: '',
+      memory: screen.memory
     }
     setScreen(newScreen);
   }
