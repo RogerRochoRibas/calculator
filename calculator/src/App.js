@@ -4,6 +4,7 @@ import DigitButton from "./components/DigitButton";
 import OperatorButton from "./components/OperatorButton";
 import MemoryButton from "./components/MemoryButton";
 import Screen from "./components/Screen";
+import DeleteButton from "./components/DeleteButton";
 
 function App() {
   const [screen, setScreen] = React.useState({
@@ -24,6 +25,8 @@ function App() {
         return firstVal * secondVal;
       } else if (operator === "÷") {
         return firstVal / secondVal;
+      } else if (operator === "%") {
+        return firstVal * secondVal / 100;
       }
     };
 
@@ -61,7 +64,7 @@ function App() {
         <button onClick={() => Clear()}>C</button>
         <OperatorButton screen={screen} setScreen={setScreen} digit='÷' />
         <OperatorButton screen={screen} setScreen={setScreen} digit='*' />
-        <button>␡</button>
+        <DeleteButton screen={screen} setScreen={setScreen} />
         <DigitButton screen={screen} setScreen={setScreen} digit="7" />
         <DigitButton screen={screen} setScreen={setScreen} digit="8" />
         <DigitButton screen={screen} setScreen={setScreen} digit="9" />
@@ -74,7 +77,7 @@ function App() {
         <DigitButton screen={screen} setScreen={setScreen} digit="2" />
         <DigitButton screen={screen} setScreen={setScreen} digit="3" />
         <button onClick={() => equalize()} className="bigButton">=</button>
-        <button className="digitButton">%</button>
+        <OperatorButton screen={screen} setScreen={setScreen} digit='%' />
         <DigitButton screen={screen} setScreen={setScreen} digit="0" />
         <DigitButton screen={screen} setScreen={setScreen} digit="." />
       </div>
